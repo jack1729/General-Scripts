@@ -7,7 +7,7 @@ Function BuildSched($sname,$reboottime) {
             $settings = New-ScheduledTaskSettingsSet -Hidden
             $trigger = New-ScheduledTaskTrigger -Weekly -at 9am -DaysOfWeek Sunday
             $action = New-ScheduledTaskAction -Execute "c:\windows\system32\rebootsrv.bat $sname"
-            Register-ScheduledTask -trigger $trigger -TaskName $sname -settings $settings -TaskPath 'UPSReboots' -Action $action -User 'richmond\nbch404' -Password 'Wegr8c0m$'
+            Register-ScheduledTask -trigger $trigger -TaskName $sname -settings $settings -TaskPath 'UPSReboots' -Action $action -User $user -Password $password
         } -argumentList $sname
     } else {
         "WPSUSA02 not available"
@@ -16,7 +16,9 @@ Function BuildSched($sname,$reboottime) {
 }
 #From: https://poshgui.com/#
 Add-Type -AssemblyName System.Windows.Forms
-$version = 0.99
+$version = 1.09
+$User = ''
+$password = ''
 
 $form_rebootserver = New-Object system.Windows.Forms.Form 
 $form_rebootserver.Text = "Reboot Server Script v$version"
