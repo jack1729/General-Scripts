@@ -2,9 +2,9 @@
 
 Function BuildSched($sname,$reboottime,$pw) {
     if(Test-WSMan -ComputerName "wpsusa02.upgf.com" -EA 0) {
-        write-host $sname
-        write-host $reboottime
-        write-host $pw
+#        write-host $sname
+#        write-host $reboottime
+#        write-host $pw
         Invoke-Command -computername "WPSUSA02" {
             param($sname,$reboottime,$pw)
 #            $principal = New-ScheduledTaskPrincipal -UserID "RICHMOND\NBCH404" -password "asdf" -LogonType Password -RunLevel Highest
@@ -20,9 +20,7 @@ Function BuildSched($sname,$reboottime,$pw) {
 }
 #From: https://poshgui.com/#
 Add-Type -AssemblyName System.Windows.Forms
-$version = 1.11
-$User = ''
-$password = ''
+$version = 1.12
 
 $form_rebootserver = New-Object system.Windows.Forms.Form 
 $form_rebootserver.Text = "Reboot Server Script v$version"
