@@ -1,0 +1,2 @@
+$wc = New-Object net.webclient; 
+$wc.Proxy = [System.Net.GlobalProxySelection]::GetEmptyWebProxy(); "{0:N2} Mbit/sec" -f ((100/(Measure-Command {$wc.Downloadfile('http://wpadma01/Summer.txt',"c:\upgf\speedtest.test")}).TotalSeconds)*8)
