@@ -1,3 +1,4 @@
+#EULA: ?
 #Load required assemblies
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.windows.Forms")
 
